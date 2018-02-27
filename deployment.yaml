@@ -14,3 +14,18 @@ spec:
         image: registry.orientsoft.cn/other/sample:latest
         ports:
         - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: sample
+spec:
+  selector:
+    app: sample
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30999
+      name: sample-port
+  type: NodePort
