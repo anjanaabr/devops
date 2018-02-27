@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sample
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sample
+    spec:
+      containers:
+      - name: sample
+        image: registry.orientsoft.cn/other/sample:latest
+        ports:
+        - containerPort: 80
